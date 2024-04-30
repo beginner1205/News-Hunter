@@ -14,5 +14,12 @@ pipeline {
                 sh './jenkins/scripts/kill.sh' 
             }
         }
+        stage("Build Image"){
+            steps{
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh 'docker build -t my-node-app:1.0 .'
+            }
+            
+        }
     }
 }
