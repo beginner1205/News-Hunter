@@ -17,6 +17,7 @@ pipeline {
         stage("Build Image"){
             steps{
                 sh "chmod +x -R ${env.WORKSPACE}"
+                sh "sudo chmod 666 /var/run/docker.sock"
                 sh 'docker build -t my-node-app:1.0 .'
             }
             
